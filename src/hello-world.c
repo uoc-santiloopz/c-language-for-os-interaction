@@ -1,10 +1,12 @@
+#include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
 
-int main(void)
+int main()
 {
-	char c[20];
+	char c[19];
 
-	sprintf(c, "Hello World!\n")
-	write(1, c, 20);
+	sprintf(c, "Hello World!\n");
+	write(1, c, strlen(c));
 }
