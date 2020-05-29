@@ -1,20 +1,20 @@
 #include <stdio.h>
 
+/* function declaration */
+void print_big(int number);
+
 int main() {
-    int array[] = {1, 7, 4, 5, 9, 3, 5, 11, 6, 3, 4};
-    int i = 0;
+  int array[] = { 1, 11, 2, 22, 3, 33 };
+  int i;
+  for (i = 0; i < 6; i++) {
+    print_big(array[i]);
+  }
+  return 0;
+}
 
-    while (i < 10) {
-        /* your code goes here */
-        if (array[i] < 5) {
-        	i++;
-        	continue;
-        } else if (array[i] > 10) {
-        	break;
-        }
-        printf("%d\n", array[i]);
-        i++;
+/* write your function here */
+void print_big(int number) {
+    if (number > 10) {
+        printf("%d is big\n", number);
     }
-
-    return 0;
 }
