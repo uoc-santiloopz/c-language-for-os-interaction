@@ -5,6 +5,7 @@
 
 
 int main() {
+	// number to print
 	int n = 198;
 	int temp_n = n;
 	int i = 0;
