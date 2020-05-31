@@ -2,7 +2,7 @@
 
 In C, arguments are copied by value to functions, which means that we cannot change the arguments to affect their value outside of the function. To do that, we must use pointers, which are taught later on.
 
-```
+```c
 #include <stdio.h>
 
 
@@ -68,4 +68,20 @@ int n;
 printf("Before: %d\n", n);
 addone(&n);
 printf("After: %d\n", n);
+```
+
+### How to access struct properties from a pointer to the struct
+There are two equivalent syntaxes
+```
+void move(point * p) {
+    (*p).x++;
+    (*p).y++;
+}
+```
+or
+```
+void move(point * p) {
+    p->x++;
+    p->y++;
+}
 ```
