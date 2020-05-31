@@ -23,7 +23,7 @@ int foo(int bar) {
 By default, variables are local to the scope in which they are defined. Variables can be declared as static to increase their scope up to file containing them. As a result, these variables can be accessed anywhere inside a file.
 
 
-```
+```c
 #include <stdio.h>
 
 
@@ -45,7 +45,7 @@ int main()
 
 By default, functions are global in C. If we declare a function with static, the scope of that function is reduced to the file containing it.
 
-```
+```c
 static void fun(void) {
    printf("I am a static function.");
 }
@@ -55,3 +55,17 @@ static void fun(void) {
 ### Static vs Global?
 
 While static variables have scope over the file containing them making them accessible only inside a given file, global variables can be accessed outside the file too.
+
+
+### Function arguments by reference
+Function arguments are passed by value, which means they are copied in and out of functions. But what if we copied pointers to values instead of the values themselves? This will enable us to give functions control over variables and structures of the parent functions, and not just a copy of them.  
+```c
+void addone(int * n) {
+    (*n)++;
+}
+
+int n;
+printf("Before: %d\n", n);
+addone(&n);
+printf("After: %d\n", n);
+```

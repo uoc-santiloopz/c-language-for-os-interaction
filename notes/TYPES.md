@@ -6,7 +6,7 @@
 
 
 ### Declaring an array
-```
+```c
 	// array of three numbers
 	int vector[3]
 ```
