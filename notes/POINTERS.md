@@ -43,3 +43,30 @@ int * pointer_to_a = &a;
 printf("The value a is %d\n", a);
 printf("The value of a is also %d\n", *pointer_to_a);
 ```
+
+### Arrays and Pointers
+The following code, the pointer variable pc stores the address of the character variable c.
+```c
+char c = 'A';
+char *pc = &c;
+```  
+Can we have pointers to arrays too? Indeed, we can...
+```c
+char vowels[] = {'A', 'E', 'I', 'O', 'U'};
+char *pvowels = &vowels;
+int i;
+
+// Print the addresses
+for (i = 0; i < 5; i++) {
+    printf("&vowels[%d]: %u, pvowels + %d: %u, vowels + %d: %u\n", i, &vowels[i], i, pvowels + i, i, vowels + i);
+}
+
+// Print the values
+for (i = 0; i < 5; i++) {
+    printf("vowels[%d]: %c, *(pvowels + %d): %c, *(vowels + %d): %c\n", i, vowels[i], i, *(pvowels + i), i, *(vowels + i));
+}
+```
+
+If you look carefully at the previous code, you will notice that we also used another apparently surprising notation: vowels + i. Moreover, pvowels + i and vowels + i returns the same thing — address of the ith element of the array vowels. On the other hand, \*(pvowels + i) and \*(vowels + i) both return the ith element of the array vowels. Why is that so?
+
+This is because the name of an array itself is a (constant) pointer to the first element of the array. In other words, the notations vowels, &vowels[0], and vowels + 0 all point to the same location.
