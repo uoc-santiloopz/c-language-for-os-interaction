@@ -1,16 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 
-int main(int argc, char *argv[])
-{
-  long factorial = 1;
-  // TODO: validate that argument is correct
-  int n = atoi(argv[1]);
+int factorial(int n);
 
-  for(int i=1; i<=n; i++) {
-  	factorial *= i;
-  }
+int main() {
+    /* testing code */
+    printf("1! = %i\n", factorial(1));
+    printf("3! = %i\n", factorial(3));
+    printf("5! = %i\n", factorial(5));
+}
 
-  printf("%d! is %lo.\n", n, factorial);
+/* define your function here (don't forget to declare it) */
+int factorial(int n) {
+    if (n == 1) {
+        return n;
+    } else {
+        return n * (factorial(n-1));
+    }
 }
